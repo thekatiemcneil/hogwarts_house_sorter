@@ -7,4 +7,4 @@ The quiz will then let them know what house they are sorted into, storing that v
 The data will be stored within the students database.
 With each update to the students database, the 'number of students' value in the houses database is updated.
 The student will be shown a message along the lines of: "The sorting hat places you in ____, where you will join _ other students!"
-end
+ends
