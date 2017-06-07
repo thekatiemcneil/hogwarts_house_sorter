@@ -38,6 +38,9 @@
   #   )
 # SQL
 
+# db.execute(create_student_table)
+# db.execute(create_houses_table)
+
 # Write methods for the actual quiz...ie how the question answers sort the user
 #
 
