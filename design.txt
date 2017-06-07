@@ -1,0 +1,10 @@
+Create a quiz that sorts the user into a Hogwarts house, and stores all quiz takers in a 'students' database linked to a 'houses' database.
+User will be asked basic questions: name, gender, and if they have an interest in quidditch.
+Users answer 5-10 multiple choice questions, of which each answer is designated towards a specific house.
+Answers assign points to a specific house value.
+The final question will ask the user if they have a house preference. If their answer matches a house, that house is given 2 extra points in their ranking.
+The quiz will then let them know what house they are sorted into, storing that value as well as the ranking of the other houses.
+The data will be stored within the students database.
+With each update to the students database, the 'number of students' value in the houses database is updated.
+The student will be shown a message along the lines of: "The sorting hat places you in ____, where you will join _ other students!"
+end
