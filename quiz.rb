@@ -104,6 +104,20 @@ puts "Please pick a color: pink, slate, purple, orange."
       gryffindor += 1
     end
 
+puts "Where would you like to go on holiday: Oxford, Auckland, Vancouver, or Las Vegas?"
+  city = gets.chomp
+    if city.downcase == "oxford"
+      ravenclaw += 1
+    elsif city.downcase == "auckland"
+      gryffindor += 1
+    elsif city.downcase == "vancouver"
+      hufflepuff += 1
+    else city.downcase == "las vegas"
+      slytherin += 1
+    end
+
+
+
 # Write method to create a user
 def create_student(db, name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id)
     db.execute("INSERT INTO students (name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id])
