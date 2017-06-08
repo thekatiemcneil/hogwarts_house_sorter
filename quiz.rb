@@ -119,15 +119,12 @@ puts "Where would you like to go on holiday: Oxford, Auckland, Vancouver, or Las
       house_tally[:slytherin] += 1
     end
 
-# define logic to determine which house has the most pointsgi
+# define logic to determine which house has the most points
 # Try to tweak this to work:
-# house_tally.each_pair do | key, value |
-#   if value > max_value
-#     max_value = value
-#     key_for_max_value = key
-#   end
-#   p key_for_max_value
-# end
+def largest_hash_key(hash)
+  hash.max_by{|k,v| v}
+end
+winning_house = largest_hash_key(house_tally)[0]
 
 # Write method to create a user
 def create_student(db, name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id)
