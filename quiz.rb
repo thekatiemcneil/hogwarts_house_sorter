@@ -119,15 +119,15 @@ puts "Where would you like to go on holiday: Oxford, Auckland, Vancouver, or Las
       house_tally[:slytherin] += 1
     end
 
-# define logic to determine which house has the most points
-# compare slytherin to gryffindor.
-  # if slytherin is larger, compare to ravenclaw.
-    # if slytherin is larger, compare to hufflepuff
-     # if slytherin is larger, slytherin is the house
-# if gryffindor is larger than slytherin, compare to ravenclaw
-  # if griffyndor is larger than ravenclaw, compare to hufflepuff
-    # if gryffindor is larger than hufflepuff, gryffindor is larger
-  # if ravenclaw is smaller than
+# define logic to determine which house has the most pointsgi
+# Try to tweak this to work:
+# house_tally.each_pair do | key, value |
+#   if value > max_value
+#     max_value = value
+#     key_for_max_value = key
+#   end
+#   p key_for_max_value
+# end
 
 # Write method to create a user
 def create_student(db, name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id)
