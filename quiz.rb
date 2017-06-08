@@ -15,13 +15,13 @@ create_student_table = <<-SQL
     house_id INT,
     year INT,
     quidditch BOOLEAN,
-    2nd_house_id INT,
-    3rd_house_id INT,
-    4th_house_id INT,
+    second_house_id INT,
+    third_house_id INT,
+    fourth_house_id INT,
     FOREIGN KEY (house_id) REFERENCES houses(id),
-    FOREIGN KEY (2nd_house_id) REFERENCES houses(id),
-    FOREIGN KEY (3rd_house_id) REFERENCES houses(id),
-    FOREIGN KEY (4th_house_id) REFERENCES houses(id)
+    FOREIGN KEY (second_house_id) REFERENCES houses(id),
+    FOREIGN KEY (third_house_id) REFERENCES houses(id),
+    FOREIGN KEY (fourth_house_id) REFERENCES houses(id)
   )
 SQL
 
@@ -55,8 +55,8 @@ create_house('houses', 'Slytherin', 0)
 #
 
 # Write method to create a user
-def create_student(db, name, gender, house_id, year, quidditch, 2nd_house_id, 3rd_house_id, 4th_house_id)
-    db.execute("INSERT INTO students (name, gender, house_id, year, quidditch, 2nd_house_id, 3rd_house_id, 4th_house_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [name, gender, house_id, year, quidditch, 2nd_house_id, 3rd_house_id, 4th_house_id])
+def create_student(db, name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id)
+    db.execute("INSERT INTO students (name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id])
 end
 
 # Write method that edits user's house after taking quiz
