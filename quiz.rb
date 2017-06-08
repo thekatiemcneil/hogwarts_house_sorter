@@ -75,10 +75,13 @@ puts "Are you interested in joining your house's quidditch team? y/n"
     # Perhaps
 
 # set 0 values for all houses to begin
-slytherin = 0
-gryffindor = 0
-hufflepuff = 0
-ravenclaw = 0
+# USE A HASHHHHHHHHH
+house_tally = {
+:slytherin => 0,
+:gryffindor => 0,
+:hufflepuff => 0,
+:ravenclaw => 0
+}
 
 puts "Please pick a word: sneak, fight, create, think."
   word = gets.chomp
@@ -116,12 +119,22 @@ puts "Where would you like to go on holiday: Oxford, Auckland, Vancouver, or Las
       slytherin += 1
     end
 
-
+# define logic to determine which house has the most points
+# compare slytherin to gryffindor.
+  # if slytherin is larger, compare to ravenclaw.
+    # if slytherin is larger, compare to hufflepuff
+     # if slytherin is larger, slytherin is the house
+# if gryffindor is larger than slytherin, compare to ravenclaw
+  # if griffyndor is larger than ravenclaw, compare to hufflepuff
+    # if gryffindor is larger than hufflepuff, gryffindor is larger
+  # if ravenclaw is smaller than
 
 # Write method to create a user
 def create_student(db, name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id)
     db.execute("INSERT INTO students (name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id])
 end
+
+# create_student(db, #{name}, #{gender}, #{house_id}, #{year}, #{quidditch}, #{second_house_id}, #{third_house_id}, #{fourth_house_id})
 
 # Write method that edits user's house after taking quiz
   # Problem: how to identify primary key for the user?
