@@ -30,26 +30,27 @@ SQL
 
 # Create houses table
 
-create_houses_table <<-SQL
-    CREATE TABLE IF NOT EXISTS houses(
-      id INTEGER PRIMARY KEY,
-      name VARCHAR(225),
-      number_of_students INT
-    )
-SQL
+# create_houses_table = <<-SQL
+#     CREATE TABLE IF NOT EXISTS houses(
+#       id INTEGER PRIMARY KEY,
+#       name VARCHAR(225),
+#       number_of_students INT
+#     )
+# SQL
 
 db.execute(create_student_table)
-db.execute(create_houses_table)
+# db.execute(create_houses_table)
+# Removed 'create house table' items, because it can be created from outside of this ruby program. The data in this table is limited to four houses, so no need to use ruby to make this.
 
 # Populate houses table if not already done
-def create_house(db, name, number_of_students)
-  db.execute("INSERT INTO IF NOT EXISTS houses (name, number_of_students) VALUES (?, ?)", [name, number_of_students])
-end
+# def create_house(db, name, number_of_students)
+#   db.execute("INSERT INTO IF NOT EXISTS houses (name, number_of_students) VALUES (?, ?)", [name, number_of_students])
+# end
 
-create_house('houses', 'Gryffindor', 0)
-create_house('houses', 'Hufflepuff', 0)
-create_house('houses', 'Ravenclaw', 0)
-create_house('houses', 'Slytherin', 0)
+# create_house(db, 'Gryffindor', 0)
+# create_house(db, 'Hufflepuff', 0)
+# create_house(db, 'Ravenclaw', 0)
+# create_house(db, 'Slytherin', 0)
 
 # Write methods for the actual quiz...ie how the question answers sort the user
 #
