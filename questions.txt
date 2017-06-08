@@ -1,3 +1,7 @@
 1. Please pick a word: sneak(S), fight(G), create(H), think(R)
 2. Please pick a color: pink(H), slate(S), purple(R), orange(G)
 3. Pick a dream holiday: Oxford(R), Auckland(G), Vancouver(H), Las Vegas(S)
+4. What is your favorite season: Summer (H), Spring(R), Autumn(G), Winter(S)
+5. Given the choice, would you rather invent a potion that gives you: glory(G), wisdom(R), love(H), power(S)
+6. Pick a variety of beer: Stout(G), IPA(H), Sour(S), Saison(R)
+7.
