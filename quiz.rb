@@ -86,38 +86,40 @@ house_tally = {
 puts "Please pick a word: sneak, fight, create, think."
   word = gets.chomp
     if word.downcase == "sneak"
-      slytherin += 1
+      house_tally[:slytherin] += 1
     elsif word.downcase == "fight"
-      gryffindor += 1
+      house_tally[:gryffindor] += 1
     elsif word.downcase == "create"
-      hufflepuff += 1
+      house_tally[:hufflepuff] += 1
     else word.downcase == "think"
-      ravenclaw += 1
+      house_tally[:ravenclaw] += 1
     end
 
 puts "Please pick a color: pink, slate, purple, orange."
   color = gets.chomp
     if color.downcase == "pink"
-      hufflepuff += 1
+      house_tally[:hufflepuff] += 1
     elsif color.downcase == "slate"
-      slytherin += 1
+      house_tally[:slytherin] += 1
     elsif color.downcase == "purple"
-      ravenclaw += 1
+      house_tally[:ravenclaw] += 1
     else color.downcase == "orange"
-      gryffindor += 1
+      house_tally[:gryffindor] += 1
     end
 
 puts "Where would you like to go on holiday: Oxford, Auckland, Vancouver, or Las Vegas?"
   city = gets.chomp
     if city.downcase == "oxford"
-      ravenclaw += 1
+      house_tally[:ravenclaw] += 1
     elsif city.downcase == "auckland"
-      gryffindor += 1
+      house_tally[:gryffindor] += 1
     elsif city.downcase == "vancouver"
-      hufflepuff += 1
+      house_tally[:hufflepuff] += 1
     else city.downcase == "las vegas"
-      slytherin += 1
+      house_tally[:slytherin] += 1
     end
+
+p house_tally
 
 # define logic to determine which house has the most points
 # compare slytherin to gryffindor.
