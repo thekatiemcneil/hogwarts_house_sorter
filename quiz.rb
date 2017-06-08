@@ -77,46 +77,46 @@ puts "Are you interested in joining your house's quidditch team? y/n"
 # set 0 values for all houses to begin
 # USE A HASHHHHHHHHH
 house_tally = {
-:slytherin => 0,
-:gryffindor => 0,
-:hufflepuff => 0,
-:ravenclaw => 0
+"Slytherin" => 0,
+"Gryffindor" => 0,
+"Hufflepuff" => 0,
+"Ravenclaw" => 0
 }
 
 puts "Please pick a word: sneak, fight, create, think."
   word = gets.chomp
     if word.downcase == "sneak"
-      house_tally[:slytherin] += 1
+      house_tally["Slytherin"] += 1
     elsif word.downcase == "fight"
-      house_tally[:gryffindor] += 1
+      house_tally["Gryffindor"] += 1
     elsif word.downcase == "create"
-      house_tally[:hufflepuff] += 1
+      house_tally["Hufflepuff"] += 1
     else word.downcase == "think"
-      house_tally[:ravenclaw] += 1
+      house_tally["Ravenclaw"] += 1
     end
 
 puts "Please pick a color: pink, slate, purple, orange."
   color = gets.chomp
     if color.downcase == "pink"
-      house_tally[:hufflepuff] += 1
+      house_tally["Hufflepuff"] += 1
     elsif color.downcase == "slate"
-      house_tally[:slytherin] += 1
+      house_tally["Slytherin"] += 1
     elsif color.downcase == "purple"
-      house_tally[:ravenclaw] += 1
+      house_tally["Ravenclaw"] += 1
     else color.downcase == "orange"
-      house_tally[:gryffindor] += 1
+      house_tally["Gryffindor"] += 1
     end
 
 puts "Where would you like to go on holiday: Oxford, Auckland, Vancouver, or Las Vegas?"
   city = gets.chomp
     if city.downcase == "oxford"
-      house_tally[:ravenclaw] += 1
+      house_tally["Ravenclaw"] += 1
     elsif city.downcase == "auckland"
-      house_tally[:gryffindor] += 1
+      house_tally["Gryffindor"] += 1
     elsif city.downcase == "vancouver"
-      house_tally[:hufflepuff] += 1
+      house_tally["Hufflepuff"] += 1
     else city.downcase == "las vegas"
-      house_tally[:slytherin] += 1
+      house_tally["Slytherin"] += 1
     end
 
 # define logic to determine which house has the most points
@@ -125,6 +125,7 @@ def largest_hash_key(hash)
   hash.max_by{|k,v| v}
 end
 winning_house = largest_hash_key(house_tally)[0]
+puts "Must be #{winning_house}!"
 
 # Write method to create a user
 def create_student(db, name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id)
