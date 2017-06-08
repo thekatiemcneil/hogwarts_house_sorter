@@ -14,7 +14,7 @@
     # gender VARCHAR(225),
     # house_id INT,
     # year INT,
-    # quidditch_interest BOOLEAN,
+    # quidditch BOOLEAN,
     # 2nd_house_id INT,
     # 3rd_house_id INT,
     # 4th_house_id INT,
@@ -38,6 +38,11 @@
   #   )
 # SQL
 
+# Populate houses table if not already done
+# def create_house(db, name, number_of_students)
+  # db.execute("INSERT INTO IF NOT EXISTS houses (name, number_of_students) VALUES ("name")
+# end
+
 # db.execute(create_student_table)
 # db.execute(create_houses_table)
 
@@ -45,6 +50,9 @@
 #
 
 # Write method to create a user
+# def create_student(db, name, gender, house_id, year, quidditch, 2nd_house_id, 3rd_house_id, 4th_house_id)
+#     db.execute("INSERT INTO students (name, gender, house_id, year, quidditch, 2nd_house_id, 3rd_house_id, 4th_house_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [name, gender, house_id, year, quidditch, 2nd_house_id, 3rd_house_id, 4th_house_id])
+# end
 
 # Write method that edits user's house after taking quiz
   # Problem: how to identify primary key for the user?
