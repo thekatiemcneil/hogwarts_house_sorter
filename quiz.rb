@@ -54,9 +54,9 @@ db.execute(create_student_table)
 # create_house(db, 'Slytherin', 0)
 # Commented out 'create house table' items, because it can be created from outside of this ruby program. The data in this table is limited to four houses, so no need to use ruby to make this.
 
-puts "What is your name?"
+puts "Welcome to Hogwarts School of Witchcraft and Wizardry! We hope you enjoyed your journey to the castle. \nBefore we can enjoy the start-of-term feast, we need to sort you into your house. \nWhat's your full name?"
   name = gets.chomp
-puts "Thanks #{name}! What is your gender?"
+puts "Thanks! What is your gender?"
   gender = gets.chomp
 puts "Are you interested in joining your house's quidditch team? y/n"
   quidditch = gets.chomp
@@ -118,8 +118,6 @@ puts "Where would you like to go on holiday: Oxford, Auckland, Vancouver, or Las
     else city.downcase == "las vegas"
       house_tally[:slytherin] += 1
     end
-
-p house_tally
 
 # define logic to determine which house has the most points
 # compare slytherin to gryffindor.
