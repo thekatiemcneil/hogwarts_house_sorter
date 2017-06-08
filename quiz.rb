@@ -54,9 +54,9 @@ db.execute(create_student_table)
 # create_house(db, 'Slytherin', 0)
 # Commented out 'create house table' items, because it can be created from outside of this ruby program. The data in this table is limited to four houses, so no need to use ruby to make this.
 
-puts "What is your name?"
+puts "Welcome to Hogwarts School of Witchcraft and Wizardry! We hope you enjoyed your journey to the castle. \nBefore we can enjoy the start-of-term feast, we need to sort you into your house. \nWhat's your full name?"
   name = gets.chomp
-puts "Thanks #{name}! What is your gender?"
+puts "Thanks! What is your gender?"
   gender = gets.chomp
 puts "Are you interested in joining your house's quidditch team? y/n"
   quidditch = gets.chomp
@@ -75,53 +75,66 @@ puts "Are you interested in joining your house's quidditch team? y/n"
     # Perhaps
 
 # set 0 values for all houses to begin
-slytherin = 0
-gryffindor = 0
-hufflepuff = 0
-ravenclaw = 0
+# USE A HASHHHHHHHHH
+house_tally = {
+:slytherin => 0,
+:gryffindor => 0,
+:hufflepuff => 0,
+:ravenclaw => 0
+}
 
 puts "Please pick a word: sneak, fight, create, think."
   word = gets.chomp
     if word.downcase == "sneak"
-      slytherin += 1
+      house_tally[:slytherin] += 1
     elsif word.downcase == "fight"
-      gryffindor += 1
+      house_tally[:gryffindor] += 1
     elsif word.downcase == "create"
-      hufflepuff += 1
+      house_tally[:hufflepuff] += 1
     else word.downcase == "think"
-      ravenclaw += 1
+      house_tally[:ravenclaw] += 1
     end
 
 puts "Please pick a color: pink, slate, purple, orange."
   color = gets.chomp
     if color.downcase == "pink"
-      hufflepuff += 1
+      house_tally[:hufflepuff] += 1
     elsif color.downcase == "slate"
-      slytherin += 1
+      house_tally[:slytherin] += 1
     elsif color.downcase == "purple"
-      ravenclaw += 1
+      house_tally[:ravenclaw] += 1
     else color.downcase == "orange"
-      gryffindor += 1
+      house_tally[:gryffindor] += 1
     end
 
 puts "Where would you like to go on holiday: Oxford, Auckland, Vancouver, or Las Vegas?"
   city = gets.chomp
     if city.downcase == "oxford"
-      ravenclaw += 1
+      house_tally[:ravenclaw] += 1
     elsif city.downcase == "auckland"
-      gryffindor += 1
+      house_tally[:gryffindor] += 1
     elsif city.downcase == "vancouver"
-      hufflepuff += 1
+      house_tally[:hufflepuff] += 1
     else city.downcase == "las vegas"
-      slytherin += 1
+      house_tally[:slytherin] += 1
     end
 
-
+# define logic to determine which house has the most points
+# compare slytherin to gryffindor.
+  # if slytherin is larger, compare to ravenclaw.
+    # if slytherin is larger, compare to hufflepuff
+     # if slytherin is larger, slytherin is the house
+# if gryffindor is larger than slytherin, compare to ravenclaw
+  # if griffyndor is larger than ravenclaw, compare to hufflepuff
+    # if gryffindor is larger than hufflepuff, gryffindor is larger
+  # if ravenclaw is smaller than
 
 # Write method to create a user
 def create_student(db, name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id)
     db.execute("INSERT INTO students (name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id])
 end
+
+# create_student(db, #{name}, #{gender}, #{house_id}, #{year}, #{quidditch}, #{second_house_id}, #{third_house_id}, #{fourth_house_id})
 
 # Write method that edits user's house after taking quiz
   # Problem: how to identify primary key for the user?
