@@ -157,7 +157,7 @@ def largest_hash_key(hash)
   hash.max_by{|k,v| v}
 end
 winning_house = largest_hash_key(house_tally)[0]
-puts "Must be #{winning_house}!"
+puts "Let me think...must be...#{winning_house}!"
 
 def convert_house(string)
   if string == "Gryffindor"
@@ -178,8 +178,6 @@ def create_student(db, name, gender, house_id, year, quidditch)
     db.execute("INSERT INTO students (name, gender, house_id, year, quidditch) VALUES (?, ?, ?, ?, ?)", [name, gender, house_id, year, quidditch])
 end
 
-create_student(db, name, gender, house_id, 1, quidditch)
-
 # Write method that edits user's house after taking quiz
   # Problem: how to identify primary key for the user?
 
@@ -187,3 +185,5 @@ create_student(db, name, gender, house_id, 1, quidditch)
 # Needed earlier in the quiz, so adding above.
 
 # Run user info through the already-created methods
+
+# create_student(db, name, gender, house_id, 1, quidditch)
