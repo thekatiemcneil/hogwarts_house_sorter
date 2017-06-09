@@ -15,7 +15,7 @@ create_student_table = <<-SQL
     house_id INT,
     year INT,
     quidditch BOOLEAN,
-    FOREIGN KEY (house_id) REFERENCES houses(id),
+    FOREIGN KEY (house_id) REFERENCES houses(id)
   )
 SQL
 
@@ -38,7 +38,7 @@ db.execute(create_student_table)
 
 # Populate houses table if not already done
 # def create_house(db, name, number_of_students)
-#   db.execute("INSERT INTO IF NOT EXISTS houses (name, number_of_students) VALUES (?, ?)", [name, number_of_students])
+#   db.execute("INSERT INTO houses (name, number_of_students) VALUES (?, ?)", [name, number_of_students])
 # end
 # Commented out 'create house table' items, because it can be created from outside of this ruby program. The data in this table is limited to four houses, so no need to use ruby to make this.
 
@@ -55,11 +55,11 @@ puts "Thanks! What is your gender?"
 puts "Are you interested in joining your house's quidditch team? y/n"
   quidditch = gets.chomp
   if quidditch.downcase == "y"
-    quidditch = true
+    quidditch = "true"
   elsif quidditch.downcase == "n"
-    quidditch = false
+    quidditch = "false"
   else
-    quidditch = false
+    quidditch = "false"
   end
 
 # Write methods for the actual quiz...ie how the question answers sort the user
@@ -171,14 +171,14 @@ def convert_house(string)
   end
 end
 
-house_id = convert_house(#{winning_house})
+house_id = convert_house(winning_house)
 
 # Write method to create a user
 def create_student(db, name, gender, house_id, year, quidditch)
     db.execute("INSERT INTO students (name, gender, house_id, year, quidditch) VALUES (?, ?, ?, ?, ?)", [name, gender, house_id, year, quidditch])
 end
 
-create_student(db, #{name}, #{gender}, #{house_id}, #{year}, #{quidditch})
+create_student(db, name, gender, house_id, 1, quidditch)
 
 # Write method that edits user's house after taking quiz
   # Problem: how to identify primary key for the user?
