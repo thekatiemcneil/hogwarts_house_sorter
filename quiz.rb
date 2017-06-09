@@ -15,13 +15,7 @@ create_student_table = <<-SQL
     house_id INT,
     year INT,
     quidditch BOOLEAN,
-    second_house_id INT,
-    third_house_id INT,
-    fourth_house_id INT,
     FOREIGN KEY (house_id) REFERENCES houses(id),
-    FOREIGN KEY (second_house_id) REFERENCES houses(id),
-    FOREIGN KEY (third_house_id) REFERENCES houses(id),
-    FOREIGN KEY (fourth_house_id) REFERENCES houses(id)
   )
 SQL
 
@@ -167,10 +161,10 @@ puts "Must be #{winning_house}!"
 
 # Write method to create a user
 def create_student(db, name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id)
-    db.execute("INSERT INTO students (name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id])
+    db.execute("INSERT INTO students (name, gender, house_id, year, quidditch) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [name, gender, house_id, year, quidditch)
 end
 
-# create_student(db, #{name}, #{gender}, #{house_id}, #{year}, #{quidditch}, #{second_house_id}, #{third_house_id}, #{fourth_house_id})
+create_student(db, #{name}, #{gender}, #{house_id}, #{year}, #{quidditch})
 
 # Write method that edits user's house after taking quiz
   # Problem: how to identify primary key for the user?
