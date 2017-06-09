@@ -119,6 +119,32 @@ puts "Where would you like to go on holiday: Oxford, Auckland, Vancouver, or Las
       house_tally["Slytherin"] += 1
     end
 
+puts "What is your favorite season: Summer, Spring, Autumn, or Winter?"
+  season = gets.chomp
+    if season.downcase == "summer"
+      house_tally["Hufflepuff"] += 1
+    elsif season.downcase == "spring"
+      house_tally["Ravenclaw"] += 1
+    elsif season.downcase == "autumn"
+      house_tally["Gryffindor"] += 1
+    else season.downcase == "winter"
+      house_tally["Slytherin"] += 1
+    end
+
+puts "Pick a variety of beer: stout, IPA, sour, or saison."
+  beer = gets.chomp
+    if beer.downcase == "stout"
+      house_tally["Gryffindor"] += 1
+    elsif beer.downcase == "ipa"
+      house_tally["Hufflepuff"] += 1
+    elsif beer.downcase == "sour"
+      house_tally["Slytherin"] += 1
+    else beer.downcase == "saison"
+      house_tally["Ravenclaw"] += 1
+    end
+
+
+
 # define logic to determine which house has the most points
 # Try to tweak this to work:
 def largest_hash_key(hash)
