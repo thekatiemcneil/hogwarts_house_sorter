@@ -134,4 +134,4 @@ def create_student(db, name, gender, house_id, year, quidditch)
     db.execute("INSERT INTO students (name, gender, house_id, year, quidditch) VALUES (?, ?, ?, ?, ?)", [name, gender, house_id, year, quidditch])
 end
 
-create_student(db, #{name}, #{gender}, #{house_id}, #{year}, #{quidditch})
+create_student(db, name, gender, house_id, 1, quidditch)
