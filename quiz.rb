@@ -159,9 +159,23 @@ end
 winning_house = largest_hash_key(house_tally)[0]
 puts "Must be #{winning_house}!"
 
+def convert_house(string)
+  if string == "Gryffindor"
+    house_id = 1
+  elsif string == "Hufflepuff"
+    house_id = 2
+  elsif string == "Ravenclaw"
+    house_id = 3
+  else string == "Slytherin"
+    house_id = 4
+  end
+end
+
+house_id = convert_house(#{winning_house})
+
 # Write method to create a user
-def create_student(db, name, gender, house_id, year, quidditch, second_house_id, third_house_id, fourth_house_id)
-    db.execute("INSERT INTO students (name, gender, house_id, year, quidditch) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [name, gender, house_id, year, quidditch)
+def create_student(db, name, gender, house_id, year, quidditch)
+    db.execute("INSERT INTO students (name, gender, house_id, year, quidditch) VALUES (?, ?, ?, ?, ?)", [name, gender, house_id, year, quidditch])
 end
 
 create_student(db, #{name}, #{gender}, #{house_id}, #{year}, #{quidditch})
@@ -173,5 +187,3 @@ create_student(db, #{name}, #{gender}, #{house_id}, #{year}, #{quidditch})
 # Needed earlier in the quiz, so adding above.
 
 # Run user info through the already-created methods
-
-# end
