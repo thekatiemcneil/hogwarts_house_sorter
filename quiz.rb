@@ -143,6 +143,18 @@ puts "Pick a variety of beer: stout, IPA, sour, or saison."
       house_tally["Ravenclaw"] += 1
     end
 
+puts "What house do you want to be in?"
+  house_preference = gets.chomp
+    if house_preference.downcase == "gryffindor"
+      house_tally["Gryffindor"] += 2
+    elsif house_preference.downcase == "ravenclaw"
+      house_tally["Ravenclaw"] += 2
+    elsif house_preference.downcase == "hufflepuff"
+      house_tally["Hufflepuff"] += 2
+    elsif house_preference.downcase == "slytherin"
+      house_tally["Slytherin"] += 2
+    else house_tally = house_tally
+    end
 
 
 # define logic to determine which house has the most points
