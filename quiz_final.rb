@@ -14,8 +14,6 @@ create_student_table = <<-SQL
     )
 SQL
 
-db.execute(create_student_table)
-
 def begin_sorting
   puts "Welcome to Hogwarts School of Witchcraft and Wizardry! We hope you enjoyed your journey to the castle. \nBefore we can enjoy the start-of-term feast, we need to sort you into your house. \nWhat's your full name?"
     name = gets.chomp
@@ -32,14 +30,14 @@ def begin_sorting
     end
 end
 
-house_tally = {
+def ask_questions
+  house_tally = {
   "Slytherin" => 0,
   "Gryffindor" => 0,
   "Hufflepuff" => 0,
   "Ravenclaw" => 0
-}
+  }
 
-def ask_questions
   puts "Please pick a word: sneak, fight, create, think."
     word = gets.chomp
       if word.downcase == "sneak"
@@ -160,14 +158,13 @@ def ask_questions
         house_tally["Slytherin"] += 2
       else house_tally = house_tally
       end
+
+  return house_tally
 end
 
 def largest_hash_key(hash)
   hash.max_by{|k,v| v}
 end
-
-winning_house = largest_hash_key(house_tally)[0]
-puts "Let me think. \nMust be...\n#{winning_house}!"
 
 def convert_house(string)
   if string == "Gryffindor"
@@ -181,8 +178,6 @@ def convert_house(string)
   end
 end
 
-house_id = convert_house(winning_house)
-
 def create_student(db, name, gender, house_id, year, quidditch)
     db.execute("INSERT INTO students (name, gender, house_id, year, quidditch) VALUES (?, ?, ?, ?, ?)", [name, gender, house_id, year, quidditch])
 end
@@ -191,9 +186,18 @@ def retrieve_tally(db, house_id)
   db.execute("SELECT number_of_students FROM houses WHERE id=#{house_id}")
 end
 
-tally = retrieve_tally(db, house_id)[0]
-
 def update_tally(db, house_id, tally)
   new_tally = tally[0] += 1
   db.execute("UPDATE houses SET number_of_students=#{new_tally} WHERE id=#{house_id}")
 end
+
+db.execute(create_student_table)
+
+house_tally = ask_questions
+
+winning_house = largest_hash_key(house_tally)[0]
+puts "Let me think. \nMust be...\n#{winning_house}!"
+
+house_id = convert_house(winning_house)
+
+tally = retrieve_tally(db, house_id)[0]
