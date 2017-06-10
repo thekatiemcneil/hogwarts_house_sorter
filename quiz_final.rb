@@ -204,6 +204,6 @@ create_student(db, name, gender, house_id, 1, quidditch)
 
 tally = retrieve_tally(db, house_id)[0]
 
-puts "You'll be joining #{tally[0]} other students in #{winning_house}!"
+puts "You'll be joining #{tally[0]} other students in #{winning_house}! Welcome to Hogwarts!"
 
 update_tally(db, house_id, tally)
