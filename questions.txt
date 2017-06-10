@@ -1,3 +1,12 @@
 1. Please pick a word: sneak(S), fight(G), create(H), think(R)
 2. Please pick a color: pink(H), slate(S), purple(R), orange(G)
 3. Pick a dream holiday: Oxford(R), Auckland(G), Vancouver(H), Las Vegas(S)
+4. What is your favorite season: Summer (H), Spring(R), Autumn(G), Winter(S)
+5. Pick a variety of beer: Stout(G), IPA(H), Sour(S), Saison(R)
+6. Pick a muggle board game: Life(H), Monopoly(S), Risk(G), Chess(R)
+7. Pick a method of transportation: bicycle(G), walk(R), skateboard(S), roller blade(H)
+8. Pick a Leslie Knope quote:
+  (a) "I am big enough to admit that I am often inspired by myself." (S)
+  (b) "We have to remember what's important in life: friends, waffles, and work. Or waffles, friends, work. But work has to come third." (H)
+  (c) "I took your idea and I made it better." (R)
+  (d) "Oh my god, I wonder who else was born in Eagleton. Voldemort probably." (G)

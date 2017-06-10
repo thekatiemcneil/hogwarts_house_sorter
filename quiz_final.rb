@@ -1,12 +1,7 @@
-# THE SORTING HAT
-
-# require gems (squlite3)
 require 'sqlite3'
 
-# create SQLite3 database
 db = SQLite3::Database.new("sorting_hat.db")
 
-# make table using create table cmd
 create_student_table = <<-SQL
   CREATE TABLE IF NOT EXISTS students(
     id INTEGER PRIMARY KEY,
@@ -18,35 +13,6 @@ create_student_table = <<-SQL
     FOREIGN KEY (house_id) REFERENCES houses(id)
     )
 SQL
-
-# Create students table (do I need to use the create_table_cmd that they used?)
-# done above
-
-# Create houses table
-# Commented out 'create house table' items, because it can be created from outside of this ruby program. The data in this table is limited to four houses, so no need to use ruby to make this.
-# create_houses_table = <<-SQL
-#     CREATE TABLE IF NOT EXISTS houses(
-#       id INTEGER PRIMARY KEY,
-#       name VARCHAR(225),
-#       number_of_students INT
-#     )
-# SQL
-
-db.execute(create_student_table)
-# db.execute(create_houses_table)
-# Commented out 'create house table' items, because it can be created from outside of this ruby program. The data in this table is limited to four houses, so no need to use ruby to make this.
-
-# Populate houses table if not already done
-# def create_house(db, name, number_of_students)
-#   db.execute("INSERT INTO houses (name, number_of_students) VALUES (?, ?)", [name, number_of_students])
-# end
-# Commented out 'create house table' items, because it can be created from outside of this ruby program. The data in this table is limited to four houses, so no need to use ruby to make this.
-
-# create_house(db, 'Gryffindor', 0)
-# create_house(db, 'Hufflepuff', 0)
-# create_house(db, 'Ravenclaw', 0)
-# create_house(db, 'Slytherin', 0)
-# Commented out 'create house table' items, because it can be created from outside of this ruby program. The data in this table is limited to four houses, so no need to use ruby to make this.
 
 def begin_sorting
   puts "Welcome to Hogwarts School of Witchcraft and Wizardry! We hope you enjoyed your journey to the castle. \nBefore we can enjoy the start-of-term feast, we need to sort you into your house. \nWhat's your full name?"
@@ -64,22 +30,14 @@ def begin_sorting
     end
 end
 
-# Write methods for the actual quiz...ie how the question answers sort the user
-# Consider best options for asking questions
-  # does quiz actually need methods, or just methods to record the data for the houses?
-  # how do I store values for the houses that can be re-set with each additional student?
-    # Perhaps
-
-# set 0 values for all houses to begin
-# USE A HASHHHHHHHHH
-house_tally = {
+def ask_questions
+  house_tally = {
   "Slytherin" => 0,
   "Gryffindor" => 0,
   "Hufflepuff" => 0,
   "Ravenclaw" => 0
-}
+  }
 
-def ask_questions
   puts "Please pick a word: sneak, fight, create, think."
     word = gets.chomp
       if word.downcase == "sneak"
@@ -200,16 +158,13 @@ def ask_questions
         house_tally["Slytherin"] += 2
       else house_tally = house_tally
       end
+
+  return house_tally
 end
 
-
-# define logic to determine which house has the most points
-# Try to tweak this to work:
 def largest_hash_key(hash)
   hash.max_by{|k,v| v}
 end
-winning_house = largest_hash_key(house_tally)[0]
-puts "Let me think. \nMust be...\n#{winning_house}!"
 
 def convert_house(string)
   if string == "Gryffindor"
@@ -223,39 +178,26 @@ def convert_house(string)
   end
 end
 
-house_id = convert_house(winning_house)
-
-# Write method to create a user
 def create_student(db, name, gender, house_id, year, quidditch)
     db.execute("INSERT INTO students (name, gender, house_id, year, quidditch) VALUES (?, ?, ?, ?, ?)", [name, gender, house_id, year, quidditch])
 end
 
-# Write method that edits user's house after taking quiz
-  # Problem: how to identify primary key for the user?
-  # Update: Not necessary!!
-
-# Add user interface that asks basic user info and quiz questions
-# Needed earlier in the quiz, so adding above.
-
-# Run user info through the already-created methods
-
-# create_student(db, name, gender, house_id, 1, quidditch)
-
-# update the number of students in house tally
-# Write method to determine new house count and add 1 to it.
-# Write method to change the house count to that new tally.
 def retrieve_tally(db, house_id)
   db.execute("SELECT number_of_students FROM houses WHERE id=#{house_id}")
 end
-
-tally = retrieve_tally(db, house_id)[0]
-
-# new_tally = tally[0] += 1
-# p new_tally
 
 def update_tally(db, house_id, tally)
   new_tally = tally[0] += 1
   db.execute("UPDATE houses SET number_of_students=#{new_tally} WHERE id=#{house_id}")
 end
 
-# update_tally(db, house_id, tally)
+db.execute(create_student_table)
+
+house_tally = ask_questions
+
+winning_house = largest_hash_key(house_tally)[0]
+puts "Let me think. \nMust be...\n#{winning_house}!"
+
+house_id = convert_house(winning_house)
+
+tally = retrieve_tally(db, house_id)[0]
