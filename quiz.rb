@@ -171,6 +171,23 @@ def ask_questions
       else house_tally = house_tally
       end
 
+  puts "Pick a Leslie Knope quote (a, b, c, or d):
+    (a) I am big enough to admit that I am often inspired by myself.
+    (b) We have to remember what's important in life: friends, waffles, and work. Or waffles, friends, work. But work has to come third.
+    (c) I took your idea and I made it better.
+    (d) Oh my god, I wonder who else was born in Eagleton. Voldemort probably."
+    quote = gets.chomp
+      if quote.downcase == "a"
+        house_tally["Slytherin"] += 1
+      elsif quote.downcase == "b"
+        house_tally["Hufflepuff"] += 1
+      elsif quote.downcase == "c"
+        house_tally["Ravenclaw"] += 1
+      elsif qutoe.downcase == "d"
+        house_tally["Gryffindor"] += 1
+      else house_tally = house_tally
+      end
+
   puts "What house do you want to be in?"
     house_preference = gets.chomp
       if house_preference.downcase == "gryffindor"
