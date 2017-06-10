@@ -157,7 +157,7 @@ def largest_hash_key(hash)
   hash.max_by{|k,v| v}
 end
 winning_house = largest_hash_key(house_tally)[0]
-puts "Let me think...must be...#{winning_house}!"
+puts "Let me think. \nMust be...\n#{winning_house}!"
 
 def convert_house(string)
   if string == "Gryffindor"
@@ -180,6 +180,7 @@ end
 
 # Write method that edits user's house after taking quiz
   # Problem: how to identify primary key for the user?
+  # Update: Not necessary!!
 
 # Add user interface that asks basic user info and quiz questions
 # Needed earlier in the quiz, so adding above.
@@ -187,3 +188,16 @@ end
 # Run user info through the already-created methods
 
 # create_student(db, name, gender, house_id, 1, quidditch)
+
+# update the number of students in house tally
+# Write method to determine new house count and add 1 to it.
+# Write method to change the house count to that new tally.
+def update_tally(db, house)
+  db.execute("SELECT number_of_students FROM houses WHERE name=#{house}")
+end
+
+update_tally(db, winning_house)
+
+def house_tally(db, house, tally)
+  db.execute()
+endg
