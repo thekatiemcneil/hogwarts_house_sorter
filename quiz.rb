@@ -16,7 +16,7 @@ create_student_table = <<-SQL
     year INT,
     quidditch BOOLEAN,
     FOREIGN KEY (house_id) REFERENCES houses(id)
-  )
+    )
 SQL
 
 # Create students table (do I need to use the create_table_cmd that they used?)
@@ -88,8 +88,9 @@ def ask_questions
         house_tally["Gryffindor"] += 1
       elsif word.downcase == "create"
         house_tally["Hufflepuff"] += 1
-      else word.downcase == "think"
+      elsif word.downcase == "think"
         house_tally["Ravenclaw"] += 1
+      else house_tally = house_tally
       end
 
   puts "Please pick a color: pink, slate, purple, orange."
@@ -100,8 +101,9 @@ def ask_questions
         house_tally["Slytherin"] += 1
       elsif color.downcase == "purple"
         house_tally["Ravenclaw"] += 1
-      else color.downcase == "orange"
+      elsif color.downcase == "orange"
         house_tally["Gryffindor"] += 1
+      else house_tally = house_tally
       end
 
   puts "Where would you like to go on holiday: Oxford, Auckland, Vancouver, or Las Vegas?"
@@ -112,8 +114,9 @@ def ask_questions
         house_tally["Gryffindor"] += 1
       elsif city.downcase == "vancouver"
         house_tally["Hufflepuff"] += 1
-      else city.downcase == "las vegas"
+      elsif city.downcase == "las vegas"
         house_tally["Slytherin"] += 1
+      else house_tally = house_tally
       end
 
   puts "What is your favorite season: Summer, Spring, Autumn, or Winter?"
@@ -124,8 +127,9 @@ def ask_questions
         house_tally["Ravenclaw"] += 1
       elsif season.downcase == "autumn"
         house_tally["Gryffindor"] += 1
-      else season.downcase == "winter"
+      elsif season.downcase == "winter"
         house_tally["Slytherin"] += 1
+      else house_tally = house_tally
       end
 
   puts "Pick a variety of beer: stout, IPA, sour, or saison."
@@ -136,9 +140,25 @@ def ask_questions
         house_tally["Hufflepuff"] += 1
       elsif beer.downcase == "sour"
         house_tally["Slytherin"] += 1
-      else beer.downcase == "saison"
+      elsif beer.downcase == "saison"
         house_tally["Ravenclaw"] += 1
+      else house_tally = house_tally
       end
+
+  puts "What muggle board game do you enjoy most: Chess, Life, Monopoly, or Risk?"
+    game = gets.chomp
+      if game.downcase == "chess"
+        house_tally["Ravenclaw"] += 1
+      elsif game.downcase == "life"
+        house_tally["Hufflepuff"] += 1
+      elsif game.downcase == "monopoly"
+        house_tally["Slytherin"] += 1
+      elsif game.downcase == "risk"
+        house_tally["Gryffindor"] += 1
+      else house_tally = house_tally
+      end
+
+  puts ""
 
   puts "What house do you want to be in?"
     house_preference = gets.chomp
