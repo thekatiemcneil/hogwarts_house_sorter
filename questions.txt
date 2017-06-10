@@ -3,4 +3,4 @@
 3. Pick a dream holiday: Oxford(R), Auckland(G), Vancouver(H), Las Vegas(S)
 4. What is your favorite season: Summer (H), Spring(R), Autumn(G), Winter(S)
 5. Pick a variety of beer: Stout(G), IPA(H), Sour(S), Saison(R)
-6.
+6. Pick a muggle board game: Life(H), Monopoly(S), Risk(G), Chess(R)
