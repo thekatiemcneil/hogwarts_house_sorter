@@ -158,7 +158,18 @@ def ask_questions
       else house_tally = house_tally
       end
 
-  puts ""
+  puts "Choose a method of transportation: bike, walk, skateboard, roller blade."
+    transport = gets.chomp
+      if transport.downcase == "bike"
+        house_tally["Gryffindor"] += 1
+      elsif transport.downcase == "walk"
+        house_tally["Ravenclaw"] += 1
+      elsif transport.downcase == "skateboard"
+        house_tally["Slytherin"] += 1
+      elsif transport.downcase == "roller blade"
+        house_tally["Hufflepuff"] += 1
+      else house_tally = house_tally
+      end
 
   puts "What house do you want to be in?"
     house_preference = gets.chomp
