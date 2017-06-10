@@ -192,12 +192,11 @@ end
 # update the number of students in house tally
 # Write method to determine new house count and add 1 to it.
 # Write method to change the house count to that new tally.
-def update_tally(db, house)
-  db.execute("SELECT number_of_students FROM houses WHERE name=#{house}")
+def retrieve_tally(db, house_id)
+  db.execute("SELECT number_of_students FROM houses WHERE id=#{house_id}")
 end
 
-update_tally(db, winning_house)
+g
 
-def house_tally(db, house, tally)
-  db.execute()
-endg
+# def update_tally(db, house_id, new_tally)
+
