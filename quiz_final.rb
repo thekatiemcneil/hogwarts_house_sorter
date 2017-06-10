@@ -14,22 +14,6 @@ create_student_table = <<-SQL
     )
 SQL
 
-def begin_sorting
-  puts "Welcome to Hogwarts School of Witchcraft and Wizardry! We hope you enjoyed your journey to the castle. \nBefore we can enjoy the start-of-term feast, we need to sort you into your house. \nWhat's your full name?"
-    name = gets.chomp
-  puts "Thanks! What is your gender?"
-    gender = gets.chomp
-  puts "Are you interested in joining your house's quidditch team? y/n"
-    quidditch = gets.chomp
-    if quidditch.downcase == "y"
-      quidditch = "true"
-    elsif quidditch.downcase == "n"
-      quidditch = "false"
-    else
-      quidditch = "false"
-    end
-end
-
 def ask_questions
   house_tally = {
   "Slytherin" => 0,
@@ -193,6 +177,22 @@ end
 
 db.execute(create_student_table)
 
+puts "Welcome to Hogwarts School of Witchcraft and Wizardry! We hope you enjoyed your journey to the castle. \nBefore we can enjoy the start-of-term feast, we need to sort you into your house. \nWhat's your full name?"
+  name = gets.chomp
+puts "Thanks! What is your gender?"
+  gender = gets.chomp
+puts "Are you interested in joining your house's quidditch team? y/n"
+  quidditch = gets.chomp
+    if quidditch.downcase == "y"
+      quidditch = "true"
+    elsif quidditch.downcase == "n"
+      quidditch = "false"
+    else
+      quidditch = "false"
+    end
+
+puts "Alright, #{name.split(" ")[0]}, its time to sort you into your Hogwarts house!"
+
 house_tally = ask_questions
 
 winning_house = largest_hash_key(house_tally)[0]
@@ -200,4 +200,10 @@ puts "Let me think. \nMust be...\n#{winning_house}!"
 
 house_id = convert_house(winning_house)
 
+create_student(db, name, gender, house_id, 1, quidditch)
+
 tally = retrieve_tally(db, house_id)[0]
+
+puts "You'll be joining #{tally[0]} other students in #{winning_house}!"
+
+update_tally(db, house_id, tally)
