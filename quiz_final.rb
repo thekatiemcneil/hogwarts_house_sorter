@@ -162,6 +162,7 @@ def ask_questions
       elsif money.downcase == "d"
         house_tally["Gryffindor"] += 1
       else house_tally = house_tally
+      end
 
   puts "What house do you want to be in?"
     house_preference = gets.chomp
@@ -175,8 +176,6 @@ def ask_questions
         house_tally["Slytherin"] += 2
       else house_tally = house_tally
       end
-
-
 
   return house_tally
 end
