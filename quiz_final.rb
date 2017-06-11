@@ -130,6 +130,39 @@ def ask_questions
       else house_tally = house_tally
       end
 
+  puts "Pick a female pop star (a, b, c, or d):
+    (a) Adele
+    (b) Rihanna
+    (c) Lady Gaga
+    (d) Taylor Swift."
+    celebrity = gets.chomp
+      if celebrity.downcase == "a"
+        house_tally["Ravenclaw"] += 1
+      elsif celebrity.downcase == "b"
+        house_tally["Slytherin"] += 1
+      elsif celebrity.downcase == "c"
+        house_tally["Gryffindor"] += 1
+      elsif celebrity.downcase == "d"
+        house_tally["Hufflepuff"] += 1
+      else house_tally = house_tally
+      end
+
+  puts "If you won $1,000,000, how would you use the money ? (a, b, c, or d)
+    (a) Dollars?  What am I supposed to do with this?
+    (b) Check conversion rates between dollars and galleons and invest accordingly.
+    (c) Set up a muggle charity to help your non-magical brethren in need.
+    (d) Transform into muggle comicbook character Batman."
+    money = gets.chomp
+      if money.downcase == "a"
+        house_tally["Slytherin"] += 1
+      elsif money.downcase == "b"
+        house_tally["Ravenclaw"] += 1
+      elsif money.downcase == "c"
+        house_tally["Hufflepuff"] += 1
+      elsif money.downcase == "d"
+        house_tally["Gryffindor"] += 1
+      else house_tally = house_tally
+
   puts "What house do you want to be in?"
     house_preference = gets.chomp
       if house_preference.downcase == "gryffindor"
@@ -142,6 +175,8 @@ def ask_questions
         house_tally["Slytherin"] += 2
       else house_tally = house_tally
       end
+
+
 
   return house_tally
 end
