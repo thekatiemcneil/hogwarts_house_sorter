@@ -130,6 +130,21 @@ def ask_questions
       else house_tally = house_tally
       end
 
+  puts "Pick a female pop star (a, b, c, or d): Adele, Rihanna, Lady Gaga, Taylor Swift."
+    celebrity = gets.chomp
+      if celebrity.downcase == "a"
+        house_tally["Ravenclaw"] += 1
+      elsif celebrity.downcase == "b"
+        house_tally["Slytherin"] += 1
+      elsif celebrity.downcase == "c"
+        house_tally["Gryffindor"] += 1
+      elsif celebrity.downcase == "d"
+        house_tally["Hufflepuff"] += 1
+      else house_tally = house_tally
+      end
+
+
+
   puts "What house do you want to be in?"
     house_preference = gets.chomp
       if house_preference.downcase == "gryffindor"
