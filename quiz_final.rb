@@ -176,6 +176,8 @@ def ask_questions
       else house_tally = house_tally
       end
 
+
+
   return house_tally
 end
 
